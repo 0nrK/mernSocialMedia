@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoute = require("./routes/users.js");
@@ -24,6 +25,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")))
 
 //middleware
 app.use(express.json());
+app.use(cors())
 app.use(helmet());
 app.use(morgan("common"));
 
